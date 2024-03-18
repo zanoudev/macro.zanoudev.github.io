@@ -1,0 +1,85 @@
+.madimi-one-regular {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/* <uniquifier>: Use a unique and descriptive class name
+ <weight>: Use a value from 300 to 700
+*/
+
+.space-grotesk-font {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Space Grotesk", sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: black;
+  }
+
+  
+  .menu {
+    width: 20%;
+    background-color: #333;
+    color: #eee;
+    padding: 0;  /* Remove padding to avoid overlap */
+    top: 0;
+    left: 0;
+    padding: 3ch;
+    border-radius: 10px;
+    margin: 20px;
+    margin-right: 0px;
+  }
+  
+  .menu-item {
+    font-size: 3ch;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;  /* Adjust padding if needed */
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .menu-item:hover {
+    background-color: #444;
+  }
+  
+  .menu-item img {
+    margin-right: 1rem;
+    width: 35px;
+    height: auto;
+  }
+  
+  .header {
+    border-radius: 10px;
+    margin: 20px;
+    padding: 0.5rem 1rem;  /* Reduced padding for smaller height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    background-color: #8b7dc9;
+    height: 3rem;
+    flex: 0 0 auto;  /* Set header to fixed height */
+
+    font-size: 2rem;
+  }
+  
+  .main {
+    border-radius: 10px;
+    margin: 20px;
+    padding: 3rem;
+    padding-top: 5rem;
+    background-color: #383838f4;
+    color:#eee;
+    flex: 1;  /* Main takes up remaining space */
+  }
+  

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTracker</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="pages.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.js"></script>
+    <script src="weightChart.js"></script>
+    <script src="macrosPie.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+  </head>
+
+<body>
+  <script>
+    async function fetchData() {
+      const response = await fetch("weightHistory.json");
+      const data = await response.json();
+      drawChart(data);
+    }
+    fetchData();
+  </script>
+    <div class="menu">
+      <div class="header">
+        <a href="index.html" style="text-decoration: inherit; color: #fff;">FitTrack</a>
+      </div>
+      <div class="menu-item">
+        <img src="pics/profile.svg" alt="Profile">
+        Profile
+      </div>
+      <div class="menu-item">
+        <img src="pics/exercise.svg" alt="Workout">
+        Workout
+      </div>
+      <div class="menu-item">
+        <img src="pics/water.svg" alt="Water">
+        Water
+      </div>
+      <div class="menu-item">
+        <img src="pics/track.svg" alt="Macros">
+        Macros
+      </div>
+      <div class="menu-item">
+        <img src="pics/scale.svg" alt="Weight">
+        Weight
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="content home-content" style="font-size: 2rem;">
+        Our greatest weakness lies in giving up. The most certain 
+        way to succeed is always to try just one more time.<br> - Thomas Edison
+      </div>
+      <div class="content profile-content" style="display: none;">
+        <h2>Profile</h2>
+          <h3>General Information</h3>
+          <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" autocomplete="additional-name">
+            <br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age">
+            <br>
+            <label for="height">Height:</label>
+            <input type="number" id="height" name="height" placeholder="Enter your age">
+            <br>
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" name="weight" placeholder="Enter your age">
+            <br>
+          </form>
+          <h3>Goals</h3>
+          <form>
+          <label for="goal-workouts">Goal Workouts (per week):</label>
+          <input type="number" id="goal-workouts" name="goal-workouts" placeholder="Enter goal workouts">
+          <br>
+          </form>
+          <h4>Macros (grams):</h4>
+          <form>
+          <label for="goal-protein">Protein:</label>
+          <input type="number" id="goal-protein" name="goal-protein" placeholder="Enter goal protein">
+          <br>
+          <label for="goal-carbs">Carbs:</label>
+          <input type="number" id="goal-carbs" name="goal-carbs" placeholder="Enter goal carbs">
+          <br>
+          <label for="goal-fat">Fat:</label>
+          <input type="number" id="goal-fat" name="goal-fat" placeholder="Enter goal fat">
+          <br>
+          <label for="goal-sugar">Sugars:</label>
+          <input type="number" id="goal-sugar" name="goal-sugar" placeholder="Enter goal sugar">
+          <br>
+          <label for="goal-calories">Calories:</label>
+          <input type="number" id="goal-calories" name="goal-calories" placeholder="Enter goal calories">
+          <br>
+          <button type="submit" id="save">Save Goals</button>
+        </form>
+      </div>
+      
+      <div class="content water-content" style="display: none;">
+        <div id="water-box">
+          <div id="water-level"></div>
+        </div>
+        <div class="add-water">
+          <button id="add">Add water</button>
+        </div>
+      </div>
+
+      <div class="content macros-content" style="display: none;">
+        <div class="chart-wrapper">
+          <div id="protein" class="macro-chart">Protein<canvas id="protein-bar"></canvas>
+            <p id="progress"></p>
+          </div>
+          
+          <div id="carbs" class="macro-chart">Carbs<canvas id="carbs-bar"></canvas>
+            <p id="progress"></p>
+          </div>
+  
+          <div id="fat" class="macro-chart">Fat<canvas id="fat-bar"></canvas>
+            <p id="progress"></p>
+          </div>
+          
+          <div id="sugar" class="macro-chart">Sugar<canvas id="sugar-bar"></canvas>
+            <p id="progress"></p>
+          </div>
+          
+          <div id="calories" class="macro-chart">Calories<canvas id="calories-bar" class="macro-chart"></canvas>
+            <p id="progress"></p>
+          </div>
+        </div>
+        <div class="macros-info">
+          <div class="add-macros">
+            <h2>Add Macros</h2>
+            <form id="macro-form">
+              <div class="macro-input">
+                <label for="protein">Protein (g):</label>
+                <input type="number" id="protein" name="protein" required>
+              </div>
+              
+              <div class="macro-input">
+                <label for="carbs">Carbs (g):</label>
+                <input type="number" id="carbs" name="carbs" required>
+              </div>
+        
+              <div class="macro-input">
+                <label for="fat">Fat (g):</label>
+                <input type="number" id="fat" name="fat" required>
+              </div>
+
+              <div class="macro-input">
+                <label for="sugar">Sugar (g):</label>
+                <input type="number" id="sugar" name="sugar" required>
+              </div>
+  
+              <div class="macro-input">
+                <label for="calories">Calories:</label>
+                <input type="number" id="calories" name="calories" required>
+              </div>
+        
+              <button type="submit" id="add">Add Macros</button>
+            </form>
+          </div>
+        
+          <div class="history">
+            <h2>History</h2>
+            <ul id="history-list">
+              </ul>
+            <button id="toggle-history">Hide History</button>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="content weight-content" style="display: none;">
+        Current Weight: <br> <span id="current-weight" style="font-size: 4rem;">63kg</span>
+        <canvas class="weight-chart"></canvas>
+      </div>
+      <div class="content workout-content" style="display: none;">
+        Workouts completed this week: <br> <span id="num-workouts" style="font-size: 4rem;">1</span>
+      </div>      
+      
+    </div>
+</body>
+
+</html>

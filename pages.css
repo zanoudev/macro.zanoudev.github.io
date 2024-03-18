@@ -1,0 +1,115 @@
+.content { /* Base styles for all content sections */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+  
+  .content h2 { /* Styles for headings within content sections */
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 2rem;
+  }
+  
+  .content.profile-content form { /* Existing styles for profile content form */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .content.profile-content label { /* Existing styles for profile content labels */
+    width: 30%;
+    text-align: right;
+    margin-bottom: 0.5rem;
+  }
+  
+  .content.profile-content input[type="text"],
+  .content.profile-content input[type="number"] { /* Existing styles for profile content inputs */
+    width: 60%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  #save, #add, #toggle-history{ /* Existing styles for profile content submit button */
+    background-color: #774caf;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: fit-content;
+  }
+  
+  /* Specific styles for other content sections */
+  .content.macros-content,
+  .content.weight-content,
+  .content.workout-content {
+    display: flex; /* Arrange content list-like */
+    /*flex-direction: column; /* Stack content vertically */
+    gap: 0.5rem; /* Space between content items */
+  }
+
+  .chart-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .macro-chart{
+    width: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px ;
+  }
+
+  .content macros-content{
+    display: flex; /* Make the container a flexbox */
+    justify-content:center;
+    align-items: baseline;
+  }
+
+  .macros-info{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .add-macros{
+    display: block;
+  }
+
+  #macro-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .macro-input{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .macro-input input {
+    height: 30px;
+    font-size: 25px;
+  }
+
+  #water-box{
+    position: relative;
+    border: black 7px solid;
+    border-top: rgb(255, 255, 255, 0);
+    border-radius: 0px 0px 10px 10px;
+    width: 150px;
+    height: 300px;
+  }
+
+  #water-level{
+    position: absolute;  /* Positions element relative to its closest positioned ancestor */
+    bottom: 0;
+    background-color: rgb(133, 191, 236);
+    width: inherit;
+    height: 70px;
+    justify-content:baseline;
+  }
